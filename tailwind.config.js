@@ -7,7 +7,8 @@ export default {
          one: "#8576FF",
          two:"#1C1678",
          three:"#FFF8DC",
-         four:"#C0D6E8"
+         four:"#FFFDD7",
+         five:"#58A399"
         
         
         

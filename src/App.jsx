@@ -1,6 +1,9 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 
 export default function App() {
+
+  const [password,setPassword] = useState("")
+
   const [copy, setCopy] = useState("Copy");
 
   const [capitalALl, setCapitalALl] = useState(false);
@@ -10,6 +13,15 @@ export default function App() {
   const [numbersAll, setNumbersAll] = useState(false);
 
   const [specialCharsAll, setSpecialCharsAll] = useState(false);
+
+
+
+  useEffect(()=>{
+    setCopy("Copy")
+
+
+
+  },[capitalALl,length,numbersAll,specialCharsAll])
 
   return (
     <>
@@ -22,12 +34,15 @@ export default function App() {
           <div className="bg-two  h-[50px] w-[100%] flex items-center justify-center">
             <input
               type="text"
-              className="border-[2px] border-black outline-none"
+              value={password}
+              className="border-[2px] bg-black text-three border-five outline-none rounded-l-lg px-[10px]"
               readOnly
             />
 
             <button
-              className="border-r-[2px] border-t-[2px] border-b-[2px] border-black text-three px-[15px] "
+              className="border-r-[2px] border-t-[2px] border-b-[2px] border-five text-three px-[15px] rounded-r-lg
+              hover:bg-slate-500 active:bg-slate-100 active:text-black
+              "
               onClick={() => {
                 setCopy("Copied");
               }}
