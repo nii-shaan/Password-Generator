@@ -14,10 +14,31 @@ export default function App() {
 
   const [specialCharsAll, setSpecialCharsAll] = useState(false);
 
+  const generatePassword = useCallback(()=>{
+    let pass= ""
+    let str="abcdefghijklmnopqrstuvwxyz"
+
+    if(capitalALl) str+="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    if(numbersAll) str+="0123456789"
+    if(specialCharsAll) str+="!@#$%^&*_-<>?/"
+
+   
+    for(let i = 1;i<=length;i++ ){
+      let char = Math.floor(Math.random() * str.length + 1)
+      pass+=str.charAt(char)
+
+    }
+
+    setPassword(pass)
+    
+  },[capitalALl,length,numbersAll,specialCharsAll])
+
 
 
   useEffect(()=>{
     setCopy("Copy")
+    generatePassword()
+    
 
 
 
@@ -70,7 +91,7 @@ export default function App() {
                 type="range"
                 id="length"
                 min={6}
-                max={20}
+                max={21}
                 value={length}
                 onChange={(e) => {
                   setLength(e.target.value);
